@@ -6,10 +6,9 @@
 ██╔═══╝░██║██║░░██╗██╔═██╗░██║░░░██║██╔═══╝░
 ██║░░░░░██║╚█████╔╝██║░╚██╗╚██████╔╝██║░░░░░
 ╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚═╝░╚═════╝░╚═╝░░░░░
-    PickUp Automated Test Coin Miner v1.0.0 
-            Developed by BlackCAT
-                    MIT
-
+    <br />PickUp Automated Test Coin Miner v1.0.0 
+            <br />Developed by BlackCAT
+                    <br />MIT
 </center>
 
 PickUp Automated Test Coin Miner to make your life easier. Add your wallet address and run the program. Still need to fix some issues and work on more wallets.
