@@ -57,26 +57,21 @@ def GetCoin():
         WebDriverWait(browser, 10).until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div/div/div[6]/div/div/button'))).click()
 
-        # sleep until get card
         time.sleep(5)
 
         WebDriverWait(browser, 10).until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div/div/div[2]/div[3]/div/button'))).click()
 
-        # sleep until success results
         time.sleep(5)
 
-        # TODO: Still need fix things
         try:
             isFailed = WebDriverWait(browser, 10).until(EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]'))).text()
+                (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[1]'))).text
 
             print(isFailed)
             if (isFailed == "Transfer Failed"):
                 waitSec = WebDriverWait(browser, 10).until(EC.presence_of_element_located(
-                    (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]'))).text()
-
-            print(waitSec)
+                    (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]'))).text
 
             waitSec = str(waitSec).replace(
                 "you are grey listed for ", "You need to wait ")
@@ -94,6 +89,7 @@ def GetCoin():
     except:
         print("[ERROR] Something went wrong")
 
+    print("HI")
     browser.quit()
 
 
