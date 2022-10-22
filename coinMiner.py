@@ -27,7 +27,7 @@ print("""\
 url = os.getenv('DOMAIN')
 
 # Account address
-address = input("[INPUT] Enter your address: ")
+address = "0x10b7f661c99e04b5afb5b2147570bb697539d255"
 
 options = webdriver.ChromeOptions()
 # options.add_argument('headless')
