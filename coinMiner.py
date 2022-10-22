@@ -25,9 +25,14 @@ print("""\
     """)
 
 url = os.getenv('DOMAIN')
+env_type = os.getenv('ENV_TYPE')
+address = ""
 
 # Account address
-address = "0x10b7f661c99e04b5afb5b2147570bb697539d255"
+if (env_type == "PROD"):
+    address = os.getenv('ADDRESS')
+else:
+    address = input("[INPUT] Enter your address: ")
 
 options = webdriver.ChromeOptions()
 # options.add_argument('headless')
@@ -37,6 +42,7 @@ options.add_argument("disable-gpu")
 
 print("--------------- Booting Up ---------------")
 
+
 def GetCoin():
     try:
         browser = webdriver.Chrome(service=Service(
@@ -44,7 +50,7 @@ def GetCoin():
         browser.get(url)
 
         # 5 min loop
-        threading.Timer(20, GetCoin).start()
+        threading.Timer(300.0, GetCoin).start()
 
         WebDriverWait(browser, 10).until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div[1]/div/div/div/div[5]/div/div[2]/div/input'))).send_keys(address)
@@ -60,7 +66,6 @@ def GetCoin():
         # sleep until success results
         time.sleep(5)
 
-
         # TODO: Still need fix things
         try:
             isFailed = WebDriverWait(browser, 10).until(EC.presence_of_element_located(
@@ -74,10 +79,10 @@ def GetCoin():
             print(waitSec)
 
             waitSec = str(waitSec).replace(
-                        "you are grey listed for ", "You need to wait ")
+                "you are grey listed for ", "You need to wait ")
 
             print(waitSec)
-            
+
             return
         except:
             None
@@ -90,7 +95,6 @@ def GetCoin():
         print("[ERROR] Something went wrong")
 
     browser.quit()
-
 
 
 GetCoin()
